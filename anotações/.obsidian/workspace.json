@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "3245894d8833802d",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6e6895297a4817a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ea82c77ba38c7c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c11b7f36cbc619ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "501dcdbbaff4f2d3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d815666126926e1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "65ce2424a6d9ada8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2b26cafeaca6f832",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "ef922e4b12eef62b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a846557bca12b65d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "baf5d8ab400f2fe5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Git.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fe52fca37a98187c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Git.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3af381d9744d0390",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          },
+          {
+            "id": "ef6be126eabf2f23",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Git.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "7ea82c77ba38c7c6",
+  "lastOpenFiles": [
+    "Anotações.md",
+    "Git.md",
+    "Teste.md",
+    "Sem título.md",
+    "Java/Java.md",
+    "Java/img.png",
+    "Java/Captura de tela 2024-04-28 132446.png",
+    "Captura.md",
+    "Captura de tela 2024-04-28 132446.png",
+    "Java",
+    "Nova pasta",
+    "Java.md",
+    "2024-04-26.md",
+    "Sem título",
+    "ED II.md",
+    "Geral.md",
+    "Projeto/CRUD.md",
+    "Git",
+    "cavalo.md",
+    "Projeto/Projeto.md",
+    "Projeto.7z",
+    "Projeto.7z.tmp",
+    "Projeto",
+    "sas",
+    "testeq.md",
+    "as.md",
+    "Sem título.canvas"
+  ]
+}
