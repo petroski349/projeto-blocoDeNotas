@@ -1,7 +1,9 @@
 package com.example.blocodenotas.controllers;
 
+import com.example.blocodenotas.controllers.security.JWTTokenProvider;
 import com.example.blocodenotas.models.entitys.Notepad;
 import com.example.blocodenotas.models.repositorys.NotepadRepository;
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,13 +14,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "notepad/")
+@RequestMapping(value = "api/notepad/")
 public class NotepadController {
     @Autowired
     private NotepadRepository notepadRepository;
-
+    @Autowired
+    private JWTTokenProvider jwtTokenProvider;
     @PostMapping(value = "add/{userId}")
-    public ResponseEntity<Object> add(@PathVariable Long userId) {
+    public ResponseEntity<Object> add(@RequestHeader String Authorization) {
+        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
         Notepad notepad = new Notepad(userId);
         try{
             notepad = notepadRepository.save(notepad);
@@ -36,10 +40,11 @@ public class NotepadController {
     }
     @GetMapping("/get-all/{userId}")
     public ResponseEntity<Object> getAllNotepads(
-            @PathVariable Long userId,
+            @RequestHeader String Authorization,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
             @RequestParam(defaultValue = "DESC") String orderBy) {
+        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
         if (startDate == null) {
             startDate = LocalDateTime.of(1970, 1, 1, 0, 0);
         }
