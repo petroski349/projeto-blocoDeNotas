@@ -29,7 +29,6 @@ public class accessController {
         }
         return ResponseEntity.ok(jwtTokenProvider.makeToken(user.getId(),user.getName()));
     }
-
     @PostMapping(value = "register")
     public ResponseEntity<Object> add(@RequestBody User user) {
         if(userRepository.findByEmail(user.getEmail()) == null){

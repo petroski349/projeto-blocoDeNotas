@@ -33,17 +33,17 @@ public class UserController {
             return ResponseEntity.badRequest().body("ERRO-> "+e.getMessage());
         }
     }
-    @GetMapping(value = "get/{userId}")
+    @GetMapping(value = "get")
     public ResponseEntity<Object> get(@RequestHeader String Authorization) {
-        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
+        Long userId = JWTTokenProvider.getUserId(Authorization);
         User user = userRepository.findById(userId);
         if(user == null)
             return ResponseEntity.badRequest().body("usuário não encontrado");
         return ResponseEntity.ok(user);
     }
-    @DeleteMapping(value = "delete-user/{userId}")
+    @DeleteMapping(value = "delete-user")
     public ResponseEntity<Object> delete(@RequestHeader String Authorization) {
-        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
+        Long userId = JWTTokenProvider.getUserId(Authorization);
         User user = userRepository.findById(userId);
         if(userRepository.existsById(userId)){
             try {

@@ -16,7 +16,7 @@ public class Notepad {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column(name = "number_words")
+    @Column(name = "number_words",nullable = false)
     private int numberWords;
     @Column(name = "information")
     private String information;
@@ -24,7 +24,7 @@ public class Notepad {
     private LocalDateTime criationDate;
     @Column(name = "modification_date")
     private LocalDateTime modificationDate;
-    @Column(name = "user_id")
+    @Column(name = "user_id",nullable = false)
     private Long user;
     public Notepad() {
         this.criationDate = LocalDateTime.now();

@@ -61,4 +61,10 @@ public class JWTTokenProvider {
         return claims;
     }
 
+    static public Long getUserId(String Authorization){
+        Claims claims = getAllClaimsFromToken(Authorization);
+        String userIdString = claims.getSubject(); // Recupera o "subject"
+        Long userId = Long.parseLong(userIdString); // Converte para Long, se necessário
+        return  userId;
+    }
 }

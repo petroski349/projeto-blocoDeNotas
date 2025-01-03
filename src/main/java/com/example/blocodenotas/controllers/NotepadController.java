@@ -3,6 +3,7 @@ package com.example.blocodenotas.controllers;
 import com.example.blocodenotas.controllers.security.JWTTokenProvider;
 import com.example.blocodenotas.models.entitys.Notepad;
 import com.example.blocodenotas.models.repositorys.NotepadRepository;
+import io.jsonwebtoken.Claims;
 import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -20,9 +21,10 @@ public class NotepadController {
     private NotepadRepository notepadRepository;
     @Autowired
     private JWTTokenProvider jwtTokenProvider;
-    @PostMapping(value = "add/{userId}")
+    @PostMapping(value = "add")
     public ResponseEntity<Object> add(@RequestHeader String Authorization) {
-        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
+       Long userId = jwtTokenProvider.getUserId(Authorization);
+        System.out.println(userId);
         Notepad notepad = new Notepad(userId);
         try{
             notepad = notepadRepository.save(notepad);
@@ -38,13 +40,14 @@ public class NotepadController {
             return ResponseEntity.badRequest().body("notepad não encontrado");
         return ResponseEntity.ok(notepad);
     }
-    @GetMapping("/get-all/{userId}")
+    @GetMapping("get-all")
     public ResponseEntity<Object> getAllNotepads(
             @RequestHeader String Authorization,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
             @RequestParam(defaultValue = "DESC") String orderBy) {
-        Long userId = JWTTokenProvider.getAllClaimsFromToken(Authorization).get("userId", Long.class);
+        Long userId = JWTTokenProvider.getUserId(Authorization);
+        System.out.println("userId : "+ userId);
         if (startDate == null) {
             startDate = LocalDateTime.of(1970, 1, 1, 0, 0);
         }
